@@ -16,7 +16,7 @@ const ModuleRouting = () => {
           </Suspense>
         }
       />
-      <Route path="/users/view" element={<ViewAllUsers />} />
+      <Route path="/view" element={<ViewAllUsers />} />
     </Routes>
   );
 };

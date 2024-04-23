@@ -37,13 +37,15 @@ const NavigateMain = () => {
     //     </Row>
     // </Navbar>
     // </nav>
+
+    
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link  href="users/create">Create</Nav.Link>
-            <Nav.Link  href="/users/view">View</Nav.Link>
+          <Nav className="me-auto mar">
+            <Nav.Link  as={Link} to="/users/create" className="navi">Create</Nav.Link>
+            <Nav.Link  as={Link} to="/users/view" className="navi">View</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

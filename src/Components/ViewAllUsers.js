@@ -1,35 +1,34 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from "react";
+import "./ViewAllUsers.css";
 const ViewAllUsers = () => {
-  // Fetch data from local storage
-  const [data,setData]=useState([])
-  useEffect(()=>{
-    const userDataFinal = JSON.parse(localStorage.getItem('usersData'));
-    setData(userDataFinal);
-  },[]);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const finalData = JSON.parse(localStorage.getItem("usersData"));
+    setData(finalData);
+  }, []);
 
   return (
     <div className="container">
-      <h1>View All Users</h1>
-      <div className='row mt-3 gx-3'>
-      <h5 className="col-2">Name</h5>
-          <h5 className="col-3">Email</h5>
-          <h5 className="col-2">Gender</h5>
-          <h5 className="col-2">Mobile</h5>
-          <h5 className="col-1">Category</h5>
-          <h5 className="col-2">Technology</h5>
+      <h1 className="text-center mb-5">View All Users</h1>
+      <div className="row mt-3 gx-3 fieldborder">
+        <h5 className="col-2 ">Name</h5>
+        <h5 className="col-2">Email</h5>
+        <h5 className="col-2">Gender</h5>
+        <h5 className="col-2">Mobile</h5>
+        <h5 className="col-1">Category</h5>
+        <h5 className="col-1 ms-5">Technologies</h5>
       </div>
-      {data?.map((userData)=>(
+      {data?.map((dataSaved) => (
         <div className="">
-        <div className="row gx-3">
-          <p className="col-2">{userData.name}</p>
-          <p className="col-3">{userData.email}</p>
-          <p className="col-2">{userData.gender}</p>
-          <p className="col-2">{userData.mobile}</p>
-          <p className="col-1">{userData.category}</p>
-          <p className="col-2">{userData.technology.join(', ')}</p>
+          <div className="row gx-3 databorder">
+            <p className="col-2 ">{dataSaved.name}</p>
+            <p className="col-2">{dataSaved.email}</p>
+            <p className="col-2">{dataSaved.gender}</p>
+            <p className="col-2">{dataSaved.mobile}</p>
+            <p className="col-1">{dataSaved.category}</p>
+            <p className="col-1 ms-5">{dataSaved.technology.join(", ")}</p>
+          </div>
         </div>
-      </div>
       ))}
     </div>
   );
